@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .c1{
+       display:none;
+       background-color: yellow;
+    }
+    .c2{
+       display: block;
+    }
+    #p1{
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <p id="p1"></p>
+  <p id="p2" class="c2">hello from html</p>
+  <p id="p3"></p>
+  <div id="d1"></div>
+  <script>
+    //diffence between innertext and innerhtml
+    //document.getElementById("p1").innerText="<strong> hello</strong>"
+    document.getElementById("p1").innerHTML="<strong> hello</strong>"
+    document.getElementById("p2").innerHTML="hello from html"
+
+    //storing html content(p tag content)in variable word
+    let word=document.getElementById("p2").textContent
+    console.log(word)
+    
+    //word is stored in javascript(inspect,check under console tag)
+
+    //copy the word into another p tag
+    document.getElementById("p3").innerText=word   //copy into p tag
+
+    //CREATE ELEMENT
+    //generate tag as per our requirement
+    //created var in js and put that var in html using appenchild
+    document.createElement("p")
+    let var1=document.createElement("p")
+    var1.id="p5"  //var1 id is created ,for future css style like adding color to newelement(var1/p)
+    var1.innerText="newly created" //adding content for new element
+    //display it under div tag in html (using appendchild)
+    document.getElementById("d1").appendChild(var1)
+
+    //document.getElementsByTagName("body")
+
+    //REMOVE ELEMENT(USING CLASSLIST)
+    //document.getElementById("p2").classList.remove("c2") //removing this line class c1 style will be apllied
+    document.getElementById("p2").classList.remove("c2") //remove
+    document.getElementById("p2").classList.add("c1")  //adding new class  c1 ,already removed c2
+    //cant remove id, class only removed
+   //c1 ---display none(hide), c2---display block
+   
+   //REMOVEID using removeAttribute
+    
+      // Select the element by its id
+      const element = document.getElementById("p1");
+
+    // Check if the element exists
+    if (element) {
+        // Remove the id attribute
+        element.removeAttribute("id");
+    }
+  
+
+   //changing attribute
+   document.getElementById("p2").style="color:blue";
+   //document.getElementById("p2").style="display:none";
+
+  </script>
+</body>
+</html>

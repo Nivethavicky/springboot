@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Api</title>
+</head>
+<body>
+
+  <h2>JSON API</h2>
+  <div id="button">
+    <button onclick="show()">
+      display output
+    </button>
+  </div>
+
+  <div id="jsontitle">
+
+  </div>
+  <script>
+    function show(){
+    let data = []
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => response.json())
+      .then(json =>{
+       console.log(json)
+       data.push(json) //json(object stored in array 0th index)
+       console.log(data)
+      for(let i=0;i<data[0].length;i++){
+          let newArray=[];
+          // newArray[i] = document.createElement("p")
+          newArray[i].innerHTML=data[0][i].id+ ":" + data[0][i].title
+         document.getElementById("jsontitle").appendChild(newArray[i])
+        
+        }
+      });
+    
+    }
+      
+  </script>
+  
+</body>
+</html>

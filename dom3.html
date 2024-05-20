@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+   .p1{
+     background-color:blue;
+   }
+  </style>
+</head>
+
+<body>
+  <p class="p1">hello world</p>
+  <button onclick="show()">show</button>
+  <button onclick="hide()">Hide</button>
+  <input type="text" onchange="change(event)">
+  <p id="p2"></p>
+
+  <script>
+    function hide(){
+     // document.getElementsByClassName("p1")[0].classList.remove("p1")
+     document.getElementsByClassName("p1")[0].style="visibility:hidden"
+    }
+    function show(){
+      document.getElementsByClassName("p1")[0].style="display:block"
+      document.getElementById("p2").innerHTML=input
+    }
+    let input;
+    // any variable name can be given (here e)
+    //checking in console by inspecting ,type somethinf in input and check the target value(for understanding)
+    //function change(e){
+      //console.log(e)
+     
+    //}
+    function change(e){
+      console.log(e.target.value) //prints user value given in input tag in console 
+      input=e.target.value
+    }
+  </script>
+</body>
+</html>
